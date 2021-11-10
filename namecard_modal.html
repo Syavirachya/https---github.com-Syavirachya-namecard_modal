@@ -1,0 +1,283 @@
+<html>
+    <head>
+        <title>Form Data Diri</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+
+<style>
+body{
+  background-color: #8dd8f8;
+}
+nav{
+  position: absolute;
+    transform: translate(50%, 20%);
+    margin: auto;
+    width: 50%;
+    height: 490px;
+    background-color: #f2f7f6;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-style: double;
+    border-color: #1a739e;;
+   
+    
+}
+header{
+  background-color: #2452a3;
+  padding: 15px;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+h2{
+  font-family: andalus;
+  font-style: italic;
+}
+p{
+  padding-left: 120px;
+  font-family: cambria ;
+}
+h5{
+padding-left: 120px;
+font-family: cambria ;
+font-style: normal;
+
+}
+h6{
+  padding-left: 120px;
+  font-family: cambria ;
+  font-size: 14px;
+}
+textarea{
+  width: 170px;
+ 
+}
+select{
+  position: relative;
+    transform: translate(10%);
+    font-family: cambria;
+    border-radius: 20px;
+    height: 30px;
+    background-color:#f8b976ec ;
+}
+.form_radio{
+  margin-bottom: 10px;
+}
+
+button{
+    position: relative;
+    transform: translate(530%);
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 12px;
+    font-family: Rockwell;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #ffff;
+    background-color:#f38c1f;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 5px #b8a89b;
+}
+button:active{
+    position: absolute;
+    transform: translatex(530%);
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #f5bc7f;
+    box-shadow:0 2px #b49b94 ;
+}
+
+.modal{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  /* Sit on top */
+  padding-top: 10px; 
+  padding-left: 280px;
+  align-items: center;
+  justify-content: center;
+  width: 50%; /* Full width */
+  height: 50%; /* Full height */
+  
+
+}
+.kartu {
+    background: linear-gradient(#2452a3, #8fdafa, #5985bb);
+    background-position: center;
+    background-blend-mode: lighten;
+    width: 550px;
+    height: 350px;
+    padding: 2rem;
+    border-radius: 2rem;
+    border-style:double;
+    border-color: red;
+    border-width:0.5rem;
+    margin: 3rem;
+    
+}
+
+.kartu h3{
+  background-color: #f38c1f;
+  font-family: andalus;
+  font-style: italic;
+  color: white;
+  text-align: center;
+    font-size: 26px;
+    align-items: center;
+}
+
+.kartu table{
+    left: 13rem;
+    top:0.5rem;
+    
+}
+.kartu tr, td {
+    padding: 12px;
+    font-family: cambria;
+}
+
+.image {
+  float: right;
+  position: relative;
+  padding: 3px;
+  
+}
+
+
+</style>
+
+<body>
+    <!--input Data User-->
+    <form name="data_diri">
+      
+      <section>
+            <nav>
+              <header>
+                <h2>Silahkan Masukan Data Anda Dibawah</h2>
+              </header>
+              <p>Nama Lengkap : <input type="name" name="nama" id="nama"></p>  
+             
+              <!--Date-->
+              <p>Tanggal Lahir  &nbsp;&nbsp;: &nbsp;<input type="date" id="date" name="date"</p>
+              
+              <!--Textarea-->
+              <p>Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <textarea name="alamat" id="alamat"></textarea></p>
+              
+              <!--Radio Button-->
+              <div class="form_radio">
+              <p>Jenis Kelamin  : 
+                <input id="laki-laki" type="radio" name="jk" value="laki-laki" ><label for="laki-laki">Laki-laki</label>
+                <input id="perempuan" type="radio" name="jk" value="perempuan"><label for="perempuan">Perempuan</label>
+              </p></div>
+             
+              <!--Select-->
+              <p> Agama &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  : <select name="agama" id="agama">
+                <option value="none" selected disabled hidden>Pilih Agama</option>
+                <option value="Islam">Islam</option>
+                <option value="Protestan">Protestan</option>
+                <option value="Katolik">Katolik</option>
+                <option value="Budha">Budha</option>
+                <option value="Hindu">Hindu</option>
+              </select></p>
+
+              <!--image-->
+              <h5>Upload Foto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </5>
+              <input type="file" accept="image/*" name="image" id="image" class="uploadimage" onchange="File_load(event)" style="
+              font-family: cambria;"/>
+
+              <!--Checkbox-->
+              <h6 style="color: red;"><input type="checkbox" id="check" name="check" value="on">Apakah Data Anda sudah Benar?</h6>
+
+              <!--Button SUbmit-->
+              <button type="button" id="btnsimpan">SIMPAN</button>
+            </nav>
+        </section>
+    </form>
+
+    <!--Modal -->
+    <div id="modal_card" class="modal">
+
+      <div class="kartu">
+        <h3>== KARTU NAMA ANDA ==</h3>
+        <table style="font-size:17px;font-family:Source Sans Pro;">
+          <tr>
+            <td>Nama&nbsp;&nbsp;&nbsp;:</td>
+            <td id="output_nama"></td>
+        </tr>
+        <tr>
+            <td>Tempat Tanggal Lahir  :</td>
+            <td id="output_date"></td>
+        </tr>
+        <tr>
+            <td>Alamat&nbsp;&nbsp;&nbsp;&nbsp;:</td>
+            <td id="output_alamat"></td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin&nbsp;&nbsp;:</td>
+            <td id="output_jk"></td>
+        </tr>
+        <tr>
+          <td>Agama&nbsp;&nbsp;:</td>
+          <td id="output_agama"></td>
+      </tr>
+   
+    <div class="image">
+      <img id="images" alt="images" width="160" height="230" style="border-radius:1rem;border-style: solid;border-color: green;">
+    </div> </table>
+      </div>
+  
+    </div>
+
+    <!--Javascript-->
+    <script>
+      var modal = document.getElementById('modal_card');
+
+      var button =document.getElementById('btnsimpan');
+
+      let File_load = function(event){
+        let image = document.getElementById('images');
+        image.src = URL.createObjectURL(event.target.files[0]);
+      };
+
+      button.onclick = function(){
+        modal.style.display = "block";
+        let inputnama = document.getElementById("nama").value;
+        let outputnama = document.getElementById("output_nama");
+        outputnama.innerHTML = inputnama;
+
+        let inputdate = document.getElementById("date").value;
+        let outputdate = document.getElementById("output_date");
+        outputdate.innerHTML = inputdate;
+
+        let inputalamat = document.getElementById("alamat").value;
+        let outputalamat = document.getElementById("output_alamat");
+        outputalamat.innerHTML = inputalamat;
+
+         let genderInput1 = document.getElementById("laki-laki").value;
+            if (genderInput1 == "laki-laki") {
+         let genderCard = document.getElementById("output_jk");
+             genderCard.innerHTML = "Laki-laki";
+            }
+
+        let genderInput2 = document.getElementById("perempuan").value;
+         if (genderInput2 == "perempuan") {
+            let genderCard = document.getElementById("output_jk");
+            genderCard.innerHTML = "Perempuan";
+          }
+
+        let x = document.getElementById("agama");
+        let i = x.selectedIndex;
+        document.getElementById("output_agama").innerHTML = x.options[i].text;
+  
+
+      }
+    </script>
+</body>
+</html>
