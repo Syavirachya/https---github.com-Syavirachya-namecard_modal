@@ -173,8 +173,8 @@ button:active{
               <!--Radio Button-->
               <div class="form_radio">
               <p>Jenis Kelamin  : 
-                <input id="laki-laki" type="radio" name="jk" value="laki-laki" ><label for="laki-laki">Laki-laki</label>
-                <input id="perempuan" type="radio" name="jk" value="perempuan"><label for="perempuan">Perempuan</label>
+                <input id="laki" type="radio" name="jeniskelamin" value="laki-laki" ><label for="laki-laki">Laki-laki</label>
+                <input id="perempuan" type="radio" name="jeniskelamin" value="perempuan"><label for="perempuan">Perempuan</label>
               </p></div>
              
               <!--Select-->
@@ -221,7 +221,7 @@ button:active{
         </tr>
         <tr>
             <td>Jenis Kelamin&nbsp;&nbsp;:</td>
-            <td id="output_jk"></td>
+            <td id="jenis_kelamin"></td>
         </tr>
         <tr>
           <td>Agama&nbsp;&nbsp;:</td>
@@ -259,24 +259,24 @@ button:active{
         let inputalamat = document.getElementById("alamat").value;
         let outputalamat = document.getElementById("output_alamat");
         outputalamat.innerHTML = inputalamat;
-
-         let genderInput1 = document.getElementById("laki-laki").value;
-            if (genderInput1 == "laki-laki") {
-         let genderCard = document.getElementById("output_jk");
-             genderCard.innerHTML = "Laki-laki";
-            }
-
-        let genderInput2 = document.getElementById("perempuan").value;
-         if (genderInput2 == "perempuan") {
-            let genderCard = document.getElementById("output_jk");
-            genderCard.innerHTML = "Perempuan";
-          }
-
+          
         let x = document.getElementById("agama");
         let i = x.selectedIndex;
         document.getElementById("output_agama").innerHTML = x.options[i].text;
   
 
+
+        //Logika 
+        let inputjk = document.getElementsByName("jeniskelamin");
+        let outputjk;
+        for (let i = 0; i < inputjk.length; i++){
+           if(inputjk[i].checked){
+             outputjk = inputjk[i].value;
+         }
+         }
+         document.getElementById("jenis_kelamin").innerHTML = ":  "+outputjk;lementById("output_jk").innerHTML = " "+inputjk[i].value;
+          
+       
       }
     </script>
 </body>
